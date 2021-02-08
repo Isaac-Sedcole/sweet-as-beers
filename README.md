@@ -50,7 +50,7 @@ Given that, our Redux store should look similar to this:
 }
 ```
 
-Now we should have a sense of what our reducers will creating. But before we start building our action creators and reducers, take this time to create the store and wrap our `<App>` with the `<Provider>` in `client/index.js`. You should setup your store so you can use the Redux DevTool.
+Now we should have a sense of what our reducers will be creating. But before we start building our action creators and reducers, take this time to create the store and wrap our `<App>` with the `<Provider>` in `client/index.js`. You should setup your store so you can use the Redux DevTool.
 
 
 ## Add to cart
