@@ -1,11 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { navigate } from '../actions'
+import { navigate, delFromCart } from '../actions'
 
 function Cart (props) {
 
   const handleClick = () => {
     props.dispatch(navigate('listing'))
+  }
+
+  const handleDelete = (id) => {
+    props.dispatch(delFromCart(id))
   }
 
   return (
@@ -25,7 +29,9 @@ function Cart (props) {
                 <td>{name}</td>
                 <td><input className='update-input' value={quantity} /></td>
                 {/* TODO: implement deletes */}
-                <td><button><span className='fa fa-trash fa-2x' /></button></td>
+                <td><button onClick={() => handleDelete(id)}>
+                  <span className='fa fa-trash fa-2x' />
+                </button></td>
               </tr>
             )
           })}
