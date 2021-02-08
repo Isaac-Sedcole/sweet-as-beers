@@ -1,6 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { navigate } from '../actions'
 
 function Cart (props) {
+
+  const handleClick = () => {
+    props.dispatch(navigate('listing'))
+  }
+
   return (
     <div className='cart'>
       <table>
@@ -26,7 +33,7 @@ function Cart (props) {
       </table>
 
       <p className='actions'>
-        <a href='#'>Continue shopping</a>
+        <a href='#' onClick={handleClick}>Continue shopping</a>
         <button>Update</button> {/* TODO: implement updates */}
         <button className='button-primary'>Checkout</button>
       </p>
@@ -34,4 +41,10 @@ function Cart (props) {
   )
 }
 
-export default Cart
+function mapStateToProps(globalState) {
+  return {
+    cart: globalState.cart
+  }
+} 
+
+export default connect(mapStateToProps)(Cart)

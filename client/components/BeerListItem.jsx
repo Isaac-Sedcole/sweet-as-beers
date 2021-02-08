@@ -1,5 +1,5 @@
 import React from 'react'
-import { addToCart } from '../actions'
+import { addToCart,  navigate } from '../actions'
 import {connect} from 'react-redux'
 
 
@@ -11,6 +11,7 @@ function BeerListItem (props) {
 
   const handleClick = () => {
     props.dispatch(addToCart(id, name))
+    props.dispatch(navigate('cart'))
   }
 
   return (
