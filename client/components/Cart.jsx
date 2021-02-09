@@ -30,6 +30,10 @@ function Cart (props) {
     alert("cart updated")
   }
 
+  const handleCheckout = () => {
+    props.dispatch(navigate('checkout'))
+  }
+
   return (
     <div className='cart'>
       <table>
@@ -61,7 +65,7 @@ function Cart (props) {
       <p className='actions'>
         <a href='#' onClick={handleClick}>Continue shopping</a>
         <button onClick={() => handleUpdate(props.cart)}>Update</button> {/* TODO: implement updates */}
-        <button className='button-primary'>Checkout</button>
+        <button className='button-primary' onClick={handleCheckout}>Checkout</button>
       </p>
     </div>
   )
