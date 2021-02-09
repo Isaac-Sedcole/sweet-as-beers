@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { navigate, delFromCart } from '../actions'
+import { navigate, delFromCart, updateCart } from '../actions'
 
 function Cart (props) {
+  const [cart, setCart] = useState(
+    props.cart
+  )
 
   const handleClick = () => {
     props.dispatch(navigate('listing'))
@@ -10,6 +13,21 @@ function Cart (props) {
 
   const handleDelete = (id) => {
     props.dispatch(delFromCart(id))
+  }
+
+  const handleChange = (e, id) => {
+    setCart(cart.map(item => {
+      if(item.id == id) {
+        item.quantity = parseInt(e.target.value)
+      }
+      return item
+    }))
+  }
+
+  const handleUpdate = (cart) => {
+    console.log(cart)
+    props.dispatch(updateCart(cart))
+    alert("cart updated")
   }
 
   return (
@@ -27,7 +45,9 @@ function Cart (props) {
             return (
               <tr key={id}>
                 <td>{name}</td>
-                <td><input className='update-input' value={quantity} /></td>
+                <td><input className='update-input' placeholder={quantity}
+                      onChange={(e) => handleChange(e, id)}
+                    /></td>
                 {/* TODO: implement deletes */}
                 <td><button onClick={() => handleDelete(id)}>
                   <span className='fa fa-trash fa-2x' />
@@ -40,7 +60,7 @@ function Cart (props) {
 
       <p className='actions'>
         <a href='#' onClick={handleClick}>Continue shopping</a>
-        <button>Update</button> {/* TODO: implement updates */}
+        <button onClick={() => handleUpdate(props.cart)}>Update</button> {/* TODO: implement updates */}
         <button className='button-primary'>Checkout</button>
       </p>
     </div>

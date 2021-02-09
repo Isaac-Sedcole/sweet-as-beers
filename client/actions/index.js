@@ -25,9 +25,9 @@ export function delFromCart (id) {
   }
 }
 
-export function updateCart(items) {
+export function updateCart(cart) {
   return {
     type: UPDATE_CART,
-    items = items
+    cart: cart
   }
 }

@@ -29,16 +29,19 @@ const reducer = (state = initialState, action) => {
       return state.filter((item) => item.id !== action.id)
 
     case UPDATE_CART :
+      console.log(action.cart)
       //item that contains an array of ids and quantities
-      // let s = [...state]
-      // for(let i = 0; i<state.length;i++) {
-      //    for(let j =0; j<action.items.length;j++)  {
-      //        if(actions.items[j] == state[i]) {
-      //             state[i] = actions.items[j]
-      // }
-      //         
-      // }
-      // }
+      // let newState = [...state]
+      // // for(let i = 0; i<state.length;i++) {
+      // //    for(let j =0; j<action.items.length;j++)  {
+      // //       if(actions.items[j].id == state[i].id) {
+      // //           newState[i].quantity = actions.items[j].quantity
+      // //       }             
+      // //     }
+      // // }
+      // console.log(newState)
+
+      return action.cart
 
     default :
       return state
