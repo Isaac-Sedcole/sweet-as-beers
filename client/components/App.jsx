@@ -5,6 +5,7 @@ import Header from './Header'
 import BeerList from './BeerList'
 import Cart from './Cart'
 import Order from './Order'
+import Admin from './Admin'
 
 import beerData from '../../data/beers'
 
@@ -19,9 +20,11 @@ function App (props) {
         return <Cart />
       case 'checkout' :
         return <Order />
+      case 'admin' :
+        return <Admin />
       default :
         break
-  }
+    }
   }
   return (
     <div className='app'>

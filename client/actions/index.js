@@ -2,6 +2,7 @@ export const ADD_TO_CART = 'ADD_TO_CART'
 export const NAVIGATE = 'NAVIGATE'
 export const DEL_FROM_CART = 'DEL_FROM_CART'
 export const UPDATE_CART = 'UPDATE_CART'
+export const UPDATE_PENDING = 'UPDATE_PENDING'
 
 export function addToCart (id, name) {
   return {
@@ -28,6 +29,13 @@ export function delFromCart (id) {
 export function updateCart(cart) {
   return {
     type: UPDATE_CART,
+    cart: cart
+  }
+}
+
+export function updatePending(cart) {
+  return {
+    type: UPDATE_PENDING,
     cart: cart
   }
 }
