@@ -1,4 +1,4 @@
-import { UPDATE_PENDING } from '../actions'
+import { UPDATE_CANCELLED, UPDATE_FULFILLED, UPDATE_PENDING } from '../actions'
 
 const initialState = {
   pending: [],
@@ -11,6 +11,12 @@ const reducer = (state = initialState, action) => {
     case UPDATE_PENDING:
       state.pending.push(action.cart)
       return state
+
+    case UPDATE_CANCELLED:
+      state.pending[[]]
+      state.cancelled.push(action.order)
+    case UPDATE_FULFILLED:
+
     default :
       return state
   }

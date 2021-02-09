@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { navigate, delFromCart, updateCart } from '../actions'
+import { navigate, delFromCart, updateCart, updatePending } from '../actions'
 
 function Cart (props) {
   const [cart, setCart] = useState(
@@ -31,7 +31,10 @@ function Cart (props) {
   }
 
   const handleCheckout = () => {
+
+    props.dispatch(updatePending(cart))
     props.dispatch(navigate('checkout'))
+
   }
 
   return (

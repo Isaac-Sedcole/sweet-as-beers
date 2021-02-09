@@ -2,6 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 const Admin = (props) => {
+
+
+
+
   return(
     <>
       <h1>Hello Mr. Administrator</h1>
@@ -11,11 +15,15 @@ const Admin = (props) => {
           <ul>
             {props.orders.pending.map(order => {
               return (
-              <li><ul>
-                {order.map(item => {
-                  return <li>{item.name}</li>
-                })} 
-              </ul></li>
+              <li>
+                <ul>
+                  {order.map(item => {
+                    return <li>{item.name} --- {item.quantity}</li>
+                  })} 
+                </ul>
+                <button onClick={() => handleCancel(order)}>cancelled</button>
+                <button onClick={() => handleFulfilled(order)}>fulfilled</button>
+              </li>
               )            
             })}
           </ul>
