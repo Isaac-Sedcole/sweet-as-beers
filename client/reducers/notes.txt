@@ -1,0 +1,4 @@
+{
+type: 'UPDATE_PENDING',
+cart: [{ id: 1, name: 'Hawkes Bay Ginger fusion', quantity: 2 }]
+}
